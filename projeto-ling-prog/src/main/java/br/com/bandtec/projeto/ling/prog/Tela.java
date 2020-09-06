@@ -282,14 +282,24 @@ public class Tela extends javax.swing.JFrame {
 
     private void btnAcaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcaoActionPerformed
         
-        // DADOS COMPUTADOR
-        Integer aleatorioCpu = ThreadLocalRandom.current().nextInt(5,100);
-        Integer aleatorioDisco = ThreadLocalRandom.current().nextInt(5,95);
-        Integer aleatorioMemoria = ThreadLocalRandom.current().nextInt(35,80);
+        // GERAR DADOS DO COMPUTADOR
+        Integer aleatorioCpu = ThreadLocalRandom.current().nextInt(0,100);
+        Integer aleatorioDisco = ThreadLocalRandom.current().nextInt(0,100);
+        Integer aleatorioMemoria = ThreadLocalRandom.current().nextInt(0,100);
+        
+        // CONVERSÃO DA PORCENTAGEM
+        Double converterCpu = aleatorioCpu.doubleValue();
+        Double converterMemoria = aleatorioMemoria.doubleValue();
+        
+        // CÁLCULO DA FREQUÊNCIA
+        
+        Double resultadoCpu = (converterCpu * 0.008) + 2.3;
+        Double resultadoMemoria = (converterMemoria * 0.06) + 2;
         
         // PORCENTAGEM DE USO
         prgCpu.setStringPainted(true);
-        prgCpu.setString(String.format("%d %%", aleatorioCpu));
+        prgCpu.setString(String.format("%d %% (%.2f GHz)",
+                aleatorioCpu, resultadoCpu));
         prgCpu.setForeground(Color.black);
         
         prgDisco.setStringPainted(true);
@@ -297,7 +307,8 @@ public class Tela extends javax.swing.JFrame {
         prgDisco.setForeground(Color.black);
         
         prgMemoria.setStringPainted(true);
-        prgMemoria.setString(String.format("%d %%", aleatorioMemoria));
+        prgMemoria.setString(String.format("%d %% (%.2f GB)",
+                aleatorioMemoria, resultadoMemoria));
         prgMemoria.setForeground(Color.black);
         
         // ATUALIZAÇÃO DA BARRA DE PROGRESSO
