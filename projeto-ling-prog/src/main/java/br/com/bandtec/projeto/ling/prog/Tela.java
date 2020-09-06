@@ -85,7 +85,7 @@ public class Tela extends javax.swing.JFrame {
 
         jLabel8.setText("100%");
 
-        jLabel9.setText("2 GB");
+        jLabel9.setText("0 GB");
 
         jLabel10.setText("8 GB");
 
@@ -292,9 +292,8 @@ public class Tela extends javax.swing.JFrame {
         Double converterMemoria = aleatorioMemoria.doubleValue();
         
         // CÁLCULO DA FREQUÊNCIA
-        
         Double resultadoCpu = (converterCpu * 0.008) + 2.3;
-        Double resultadoMemoria = (converterMemoria * 0.06) + 2;
+        Double resultadoMemoria = converterMemoria * 0.08;
         
         // PORCENTAGEM DE USO
         prgCpu.setStringPainted(true);
